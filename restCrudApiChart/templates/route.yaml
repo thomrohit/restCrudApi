@@ -1,0 +1,14 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: web-server-route
+  labels:
+    app: web-server
+spec:
+  host: {{.Values.hostname}}.{{.Values.kcsEnv}}
+  port:
+    targetPort: 8000
+  to:
+    kind: Service
+    name: web-server-service
+

@@ -1,0 +1,11 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: printall-route
+spec:
+  host: {{.Values.hostname}}.{{.Values.kcsEnv}}
+  port:
+    targetPort: 80
+  to:
+    kind: Service
+    name: lb-printall
