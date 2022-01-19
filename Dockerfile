@@ -1,5 +1,4 @@
-#FROM openjdk:8-jdk-alpine
-FROM registry.web.boeing.com/container/boeing-images/stack/ubi8minimal-jdk8
-COPY target/*.jar app.jar
+FROM openjdk:8-jdk-alpine
+COPY target/*.jar /opt/rest/app.jar
 EXPOSE 8181
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","/opt/rest/app.jar"]

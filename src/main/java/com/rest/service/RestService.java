@@ -1,7 +1,9 @@
 package com.rest.service;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,13 +16,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.rest.controller.RestApiController;
 import com.rest.dto.RestApi;
 
 @Service
@@ -34,7 +33,22 @@ public class RestService {
 
 	private static Logger logger = LoggerFactory.getLogger(RestService.class);
 	
+	public void createFileifNotexists() {
+	    try {
+	        File file = new File(path);
+	        if (!file.exists()) {
+	            file.createNewFile();
+	            FileOutputStream writer = new FileOutputStream(path);
+	            writer.write(("[]").getBytes());
+	            writer.close();
+	        } 
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+	
 	public List<RestApi> readFile2List() {
+		createFileifNotexists();
 		logger.info("Inside ReadFile2List");
 		List<RestApi> objList = new ArrayList<>();
 		try (FileReader reader = new FileReader(path)) {
