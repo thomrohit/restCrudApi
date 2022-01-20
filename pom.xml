@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.rest</groupId>
 	<artifactId>rest-crud-api</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>RestCrudApi</name>
 	<packaging>jar</packaging>
 	<description>Demo project for CRUD Opertaions</description>
