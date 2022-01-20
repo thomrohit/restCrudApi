@@ -9,11 +9,12 @@
 	</parent>
 	<groupId>com.rest</groupId>
 	<artifactId>rest-crud-api</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>RestCrudApi</name>
 	<packaging>jar</packaging>
 	<description>Demo project for CRUD Opertaions</description>
 	<properties>
+	<project.scm.id>jenkins</project.scm.id>
 		<java.version>1.8</java.version>
 	</properties>
 	
