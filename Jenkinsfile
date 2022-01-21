@@ -26,7 +26,7 @@ pipeline {
         }
         stage ("Build"){
 			steps {
-			bat"mvn clean install"
+			sh "mvn clean install"
     		 echo "${registry}"
 			}
 		}
@@ -41,7 +41,7 @@ pipeline {
                 } */
                   
                   withCredentials([usernamePassword(credentialsId: 'docker_creds', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                    bat """
+                    sh  """
                     docker login -u $user -p $pass
                     docker build -t $registry .
                     docker push $registry
