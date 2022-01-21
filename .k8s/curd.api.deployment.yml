@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: curd-api
-        image: thomrohit/springtest:latest
+        image: thomrohit/restcrudapi:latest
         ports:
         - name: liveness-port
           containerPort: 8181
