@@ -27,7 +27,7 @@ pipeline {
         stage ("Build"){
 			steps {
 			sh "mvn clean install"
-    		 echo "${registry}"
+    		echo "${registry}"
 			}
 		}
 		stage('Docker Build & Publish') {
