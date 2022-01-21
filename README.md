@@ -15,8 +15,15 @@ Ensure you have Java, git, maven, docker, kuberenetes installed
 5. Update **curd.api.deployment.yml** file with image name used from previous
 6. Replace pvc.yml with pvc.local.yml located under .k8s/local
 7. kubectl apply -f .k8s
+8. Curl to test using localhost
+   
+- curl -X GET http://localhost:8181/
+- curl -X POST http://localhost:8181/foo/bar
+- curl -X DELETE http://localhost:8181/foo
 
+On GCP the service creates an external IP which can be replaced with localhost to test on cloud 
 
+On GCP the service creates an external IP which can be replaced with localhost to test on cloud 
 ## DevOps requirements
 
 -	Provide scripts that create initial deploy environment.
